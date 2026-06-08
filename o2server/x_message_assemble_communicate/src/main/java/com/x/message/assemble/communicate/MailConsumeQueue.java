@@ -106,7 +106,7 @@ public class MailConsumeQueue extends AbstractQueue<Message> {
 			}
 		});
 		MimeMessage mime = new MimeMessage(session);
-		mime.setFrom(new InternetAddress(consumer.getFrom()));
+		mime.setFrom(new InternetAddress(consumer.getSender()));
 		mime.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(recipient));
 		mime.setSubject(message.getTitle());
 		mime.setText(message.getBody(), StandardCharsets.UTF_8.name(), "html");
